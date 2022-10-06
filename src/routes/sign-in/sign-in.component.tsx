@@ -49,11 +49,9 @@ const SignInPage = function SignInPage() {
         </Typography>
         <Typography color="primary">Enter your email and password</Typography>
         <Form onSubmit={onSubmit} types={['email', 'password']} />
-        <Stack flexDirection="row">
-          <Typography color="primary">
-            Don’t have an account ? /&nbsp;
-          </Typography>
-          <Link component={RouterLink} color="primary" to="/sign_up">
+        <Stack gap="10px" sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
+          <Typography color="primary">Don’t have an account?</Typography>
+          <Link component={RouterLink} color="primary.light" to="/sign_up">
             Sign up
           </Link>
         </Stack>

@@ -6,6 +6,7 @@ import HomePage from './routes/home/home-page.component';
 import Navigation from './components/navigation/navigation.component';
 import SignInPage from './routes/sign-in/sign-in.component';
 import SignUpPage from './routes/sign-up/sign-up.component';
+import OutlayPage from './routes/outlay/outlay.component';
 
 const theme = createTheme({
   palette: {
@@ -73,13 +74,6 @@ const theme = createTheme({
         },
       `,
     },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          borderRadius: '8px',
-        },
-      },
-    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -113,7 +107,9 @@ const App = function App() {
       <CssBaseline />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="outlay" element={<Navigation />} />
+        <Route path="outlay" element={<Navigation />}>
+          <Route index element={<OutlayPage />} />
+        </Route>
         <Route path="sign_in" element={<SignInPage />} />
         <Route path="sign_up" element={<SignUpPage />} />
         <Route path="*" element={<HomePage />} />

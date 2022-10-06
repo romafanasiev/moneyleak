@@ -7,7 +7,7 @@ import Logo from '../logo/logo.component';
 const Navigation: React.FC = function Navigation() {
   return (
     <>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color="secondary" sx={{ border: 'none' }}>
         <Toolbar>
           <Stack
             direction="row"

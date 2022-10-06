@@ -10,6 +10,7 @@ const loginModalStyles = {
 
   width: { xs: '270px', sm: '380px' },
 
+  borderRadius: '24px',
   textAlign: 'center',
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, InputAdornment, TextField, useTheme } from '@mui/material';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
@@ -14,8 +14,15 @@ export const TextInput: React.FC<Props> = function TextInput({
   control,
   label,
 }) {
+  const theme = useTheme();
   const [visibility, setVisibility] = useState(false);
-  const inputStyles = { color: 'primary.main', outline: 'none' };
+  const inputStyles = {
+    color: 'primary.main',
+    '& :-webkit-autofill': {
+      '-webkit-box-shadow': `0 0 0 100px ${theme.palette.secondary.main} inset`,
+      '-webkit-text-fill-color': `${theme.palette.primary.main}`,
+    },
+  };
   let fieldType = 'text';
 
   if (name === 'password') {
@@ -36,12 +43,11 @@ export const TextInput: React.FC<Props> = function TextInput({
           error={!!error}
           helperText={error ? error.message : null}
           fullWidth
-          autoComplete="off"
           InputLabelProps={{ sx: inputStyles }}
           InputProps={
             name === 'password'
               ? {
-                  sx: { color: 'primary.main' },
+                  sx: inputStyles,
                   endAdornment: (
                     <InputAdornment position="end">
                       <IconButton
