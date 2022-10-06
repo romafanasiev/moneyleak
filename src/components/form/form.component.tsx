@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Stack } from '@mui/material';
 import { TextInput } from '../text-input/text-input.component';
-import validationSchema from '../../utils/validation/validation-schema';
+import getValidation from '../../utils/validation/validation-schema';
 import FormButton from '../form-button/form-button.component';
 
 type Props = {
@@ -12,16 +12,9 @@ type Props = {
 };
 
 const Form: React.FC<Props> = function Form({ onSubmit, types }) {
-  const {
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(validationSchema),
+  const { handleSubmit, reset, control } = useForm({
+    resolver: yupResolver(getValidation(types)),
   });
-
-  console.log(errors);
 
   return (
     <Stack component="form" gap="20px" sx={{ width: '100%' }}>
