@@ -3,6 +3,8 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import Montserrat from './assets/fonts/montserrat.ttf';
 import HomePage from './routes/home/home-page.component';
+import Navigation from './components/navigation/navigation.component';
+import SignInPage from './routes/sign-in/sign-in.component';
 
 const theme = createTheme({
   palette: {
@@ -65,6 +67,30 @@ const theme = createTheme({
         },
       `,
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          height: '48px',
+          borderRadius: '8px',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          height: '48px',
+          borderRadius: '8px',
+          color: 'primary',
+        },
+      },
+    },
   },
 });
 
@@ -74,6 +100,8 @@ const App = function App() {
       <CssBaseline />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="outlay" element={<Navigation />} />
+        <Route path="sign_in" element={<SignInPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </ThemeProvider>
