@@ -5,6 +5,7 @@ import Montserrat from './assets/fonts/montserrat.ttf';
 import HomePage from './routes/home/home-page.component';
 import Navigation from './components/navigation/navigation.component';
 import SignInPage from './routes/sign-in/sign-in.component';
+import SignUpPage from './routes/sign-up/sign-up.component';
 
 const theme = createTheme({
   palette: {
@@ -19,6 +20,11 @@ const theme = createTheme({
       main: '#0e0e0f',
       dark: '#000000',
       contrastText: '#c5fb6c',
+    },
+    error: {
+      light: '#ff5a36',
+      main: '#ff0000',
+      dark: '#c20000',
     },
     text: {
       primary: '#0e0e0f',
@@ -91,6 +97,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: 'none',
+        },
+      },
+    },
   },
 });
 
@@ -102,6 +115,7 @@ const App = function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="outlay" element={<Navigation />} />
         <Route path="sign_in" element={<SignInPage />} />
+        <Route path="sign_up" element={<SignUpPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </ThemeProvider>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Paper, Typography, Link, Stack } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Paper, Typography } from '@mui/material';
 import LogInContainer from '../../components/log-in-container/log-in-container';
 import Logo from '../../components/logo/logo.component';
 import Form from '../../components/form/form.component';
@@ -9,7 +8,7 @@ import Form from '../../components/form/form.component';
 //   textInput: '123',
 // };
 
-const SignInPage = function SignInPage() {
+const SignUpPage = function SignUpPage() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   // const methods = useForm({ defaultValues: initialState });
 
@@ -35,21 +34,13 @@ const SignInPage = function SignInPage() {
       >
         <Logo />
         <Typography variant="h2" color="primary">
-          Sign in
+          Sign up
         </Typography>
-        <Typography color="primary">Enter your email and password</Typography>
-        <Form onSubmit={onSubmit} types={['email', 'password']} />
-        <Stack flexDirection="row">
-          <Typography color="primary">
-            Don’t have an account? /&nbsp;
-          </Typography>
-          <Link component={RouterLink} color="primary" to="/sign_up">
-            Sign up
-          </Link>
-        </Stack>
+        <Typography color="primary">Create a new account</Typography>
+        <Form onSubmit={onSubmit} types={['login', 'email', 'password']} />
       </Paper>
     </LogInContainer>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

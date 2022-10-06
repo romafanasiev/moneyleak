@@ -15,6 +15,7 @@ export const TextInput: React.FC<Props> = function TextInput({
   label,
 }) {
   const [visibility, setVisibility] = useState(false);
+  const inputStyles = { color: 'primary.main', outline: 'none' };
   let fieldType = 'text';
 
   if (name === 'password') {
@@ -26,14 +27,17 @@ export const TextInput: React.FC<Props> = function TextInput({
       name={name}
       control={control}
       defaultValue=""
-      render={({ field: { onChange, value } }) => (
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
         <TextField
           onChange={onChange}
           value={value}
           label={label}
           type={fieldType}
+          error={!!error}
+          helperText={error ? error.message : null}
           fullWidth
-          InputLabelProps={{ sx: { color: 'primary.main' } }}
+          autoComplete="off"
+          InputLabelProps={{ sx: inputStyles }}
           InputProps={
             name === 'password'
               ? {
@@ -54,7 +58,7 @@ export const TextInput: React.FC<Props> = function TextInput({
                     </InputAdornment>
                   ),
                 }
-              : { sx: { color: 'primary.main' } }
+              : { sx: inputStyles }
           }
         />
       )}
