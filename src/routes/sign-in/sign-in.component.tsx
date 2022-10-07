@@ -5,7 +5,7 @@ import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import LogInContainer from '../../components/log-in-container/log-in-container';
 import Logo from '../../components/logo/logo.component';
 import Form from '../../components/form/form.component';
-import loginModalStyles from '../../utils/styles/login-modal.styles';
+import { loginModalStyles } from '../../utils/styles/login-modal.styles';
 import { useAppDispatch } from '../../store/store';
 import { signIn } from '../../store/user/user.reducer';
 

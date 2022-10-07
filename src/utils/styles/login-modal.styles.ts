@@ -1,4 +1,4 @@
-const loginModalStyles = {
+export const loginModalStyles = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -14,4 +14,6 @@ const loginModalStyles = {
   textAlign: 'center',
 };
 
-export default loginModalStyles;
+export const mainContainerStyles = {
+  padding: 2,
+};

@@ -9,7 +9,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-import loginModalStyles from '../../utils/styles/login-modal.styles';
+import { loginModalStyles } from '../../utils/styles/login-modal.styles';
 
 type FormValues = {
   login: string;
