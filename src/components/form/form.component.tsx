@@ -9,9 +9,10 @@ import FormButton from '../form-button/form-button.component';
 type Props = {
   onSubmit: (data: any) => void;
   types: string[];
+  inputColor?: string;
 };
 
-const Form: React.FC<Props> = function Form({ onSubmit, types }) {
+const Form: React.FC<Props> = function Form({ onSubmit, types, inputColor }) {
   const { handleSubmit, reset, control } = useForm({
     resolver: yupResolver(getValidation(types)),
   });
@@ -25,6 +26,7 @@ const Form: React.FC<Props> = function Form({ onSubmit, types }) {
             control={control}
             label={`${type.charAt(0).toUpperCase()}${type.slice(1)}`}
             key={type}
+            inputColor={inputColor!}
           />
         );
       })}
@@ -32,6 +34,10 @@ const Form: React.FC<Props> = function Form({ onSubmit, types }) {
       <FormButton text="Reset" onClick={() => reset()} />
     </Stack>
   );
+};
+
+Form.defaultProps = {
+  inputColor: 'primary.main',
 };
 
 export default Form;

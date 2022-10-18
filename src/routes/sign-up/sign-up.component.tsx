@@ -10,6 +10,7 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 import { loginModalStyles } from '../../utils/styles/login-modal.styles';
+import FormTypes from '../../utils/types/form-types.utils';
 
 type FormValues = {
   login: string;
@@ -20,6 +21,8 @@ type FormValues = {
 const SignUpPage = function SignUpPage() {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const { Email, Login, Password } = FormTypes;
+  const inputTypes = [Email, Login, Password];
 
   const onSubmit = async (data: FormValues) => {
     const { email, password, login } = data;
@@ -54,7 +57,7 @@ const SignUpPage = function SignUpPage() {
           Sign up
         </Typography>
         <Typography color="primary">Create a new account</Typography>
-        <Form onSubmit={onSubmit} types={['login', 'email', 'password']} />
+        <Form onSubmit={onSubmit} types={inputTypes} />
       </Paper>
       {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
     </LogInContainer>

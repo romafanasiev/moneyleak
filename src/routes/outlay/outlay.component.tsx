@@ -1,15 +1,14 @@
 import React from 'react';
 import {
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
+  // Table,
+  // TableBody,
+  // TableCell,
+  // TableContainer,
+  // TableRow,
 } from '@mui/material';
 import Balance from '../../components/balance/balance.component';
 import SelectPeriod from '../../components/select-period/select-period.component';
-import categories from '../schemas/category';
 import { mainContainerStyles } from '../../utils/styles/login-modal.styles';
 import AddForm from '../../components/add-form/add-form.component';
 
@@ -27,7 +26,7 @@ const OutlayPage: React.FC = function OutlayPage() {
         <p>Incomes filter</p>
       </div>
       <h3>STATISTIC</h3>
-      <TableContainer>
+      {/* <TableContainer>
         <Table>
           <TableBody>
             {categories.map((category) => {
@@ -39,7 +38,7 @@ const OutlayPage: React.FC = function OutlayPage() {
             })}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
       <AddForm />
     </Box>
   );

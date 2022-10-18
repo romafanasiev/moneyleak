@@ -7,17 +7,19 @@ type Props = {
   name: string;
   control: Control<FieldValues, any>;
   label: string;
+  inputColor: string;
 };
 
 export const TextInput: React.FC<Props> = function TextInput({
   name,
   control,
   label,
+  inputColor,
 }) {
   const theme = useTheme();
   const [visibility, setVisibility] = useState(false);
   const inputStyles = {
-    color: 'primary.main',
+    color: inputColor,
     '& :-webkit-autofill': {
       '-webkit-box-shadow': `0 0 0 100px ${theme.palette.secondary.main} inset`,
       '-webkit-text-fill-color': `${theme.palette.primary.main}`,
@@ -36,6 +38,7 @@ export const TextInput: React.FC<Props> = function TextInput({
       defaultValue=""
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <TextField
+          color="secondary"
           onChange={onChange}
           value={value}
           label={label}

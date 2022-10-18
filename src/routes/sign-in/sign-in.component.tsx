@@ -8,6 +8,7 @@ import Form from '../../components/form/form.component';
 import { loginModalStyles } from '../../utils/styles/login-modal.styles';
 import { useAppDispatch } from '../../store/store';
 import { signIn } from '../../store/user/user.reducer';
+import FormTypes from '../../utils/types/form-types.utils';
 
 type FormValues = {
   email: string;
@@ -16,6 +17,8 @@ type FormValues = {
 
 const SignInPage = function SignInPage() {
   const [errorMessage, setErrorMessage] = useState('');
+  const { Email, Password } = FormTypes;
+  const inputTypes = [Email, Password];
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -48,7 +51,7 @@ const SignInPage = function SignInPage() {
           Sign in
         </Typography>
         <Typography color="primary">Enter your email and password</Typography>
-        <Form onSubmit={onSubmit} types={['email', 'password']} />
+        <Form onSubmit={onSubmit} types={inputTypes} />
         <Stack gap="10px" sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
           <Typography color="primary">Don’t have an account?</Typography>
           <Link component={RouterLink} color="primary.light" to="/sign_up">
