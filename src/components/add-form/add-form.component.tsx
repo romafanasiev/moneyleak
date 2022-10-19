@@ -65,7 +65,7 @@ const AddForm: React.FC = function AddForm() {
           >
             Add category
           </Button>
-          <Stack spacing={2} sx={{ width: '100%', backgroundColor: 'red' }}>
+          <Stack spacing={2} sx={{ width: '100%', backgroundColor: 'blue' }}>
             {formFields.map((field, index) => {
               return (
                 <CurrencyField control={control} key={index} uniqKey={index} />
